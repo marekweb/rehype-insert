@@ -11,7 +11,7 @@ Select an element in the target HTML tree by providing a selector string.
 Supports any selector which can be used by
 [**hast-util-select**][hast-util-select].
 
-HAST trees can be created by parsing HTML content with [**rehype-parse**] or by
+HAST trees can be created by parsing HTML content with [**rehype-parse**][rehype-parse] or by
 using [**hastscript**][hastscript].
 
 ## Installation
@@ -42,7 +42,7 @@ Take this HTML fragment, which is going to be parsed with
 ```
 
 By running `rehype-insert` as a plugin with the following options, we can insert
-text or elements into the HTML fragment.
+text and elements into the HTML fragment.
 
 ```js
 const h = require("hastscript");
@@ -61,7 +61,7 @@ const optionsForInsert = [
 ```
 
 To use `rehype-insert` as a plugin, here's how we connect it to the processor,
-between the parse step and the stringify step.
+between the parse step and the stringify step:
 
 ```js
 const unified = require("unified");
@@ -79,7 +79,7 @@ unified()
   });
 ```
 
-Output:
+Here's the output. Notice that we replaced the text in the `#title` element, and we appended a new element to `.content`:
 
 ```html
 <article>
@@ -95,9 +95,7 @@ Output:
 
 ### `rehype().use(rehypeInsert[, options])`
 
-`options` is an object of options, or an array of objects of options.
-
-##### `options`
+##### `options`: an options object or an array of options objects (for multiple insertions)
 
 ###### `options.selector`
 
@@ -106,21 +104,21 @@ Element selector string, as supported by
 
 ###### `options.insert`
 
-Value to insert. Possible values:
+Content to insert inside of the selected node. Possible types of values:
 
 - a [**HAST**][hast] node
 - an array of [**HAST**][hast] nodes
 - a string (will be converted to a text node)
 
-##### `options.action` (default: `'replace'`)
+###### `options.action` (default: `'replace'`)
 
 Type of insert action to perform:
 
-- `replace` (default): replace existing content in the target node (if any) with
+- `replace` (default): replace existing content in the selected node (if any) with
   the new content.
-- `append`: conserve the target node's children and append the content to the
+- `append`: conserve the selected node's children and append the content to the
   children.
-- `prepend`: conserve the target node's children and prepend the content to the
+- `prepend`: conserve the selected node's children and prepend the content to the
   children.
 
 ## License
