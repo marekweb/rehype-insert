@@ -1,0 +1,27 @@
+{
+  "name": "rehype-insert",
+  "repository": "marekweb/rehype-insert",
+  "license": "MIT",
+  "version": "0.1.0",
+  "scripts": {
+    "format": "prettier --write --prose-wrap always '**/*.{js,md}'",
+    "test": "jest"
+  },
+  "files": [
+    "index.js",
+    "hast-util-insert.js",
+    "hast-util-to-node-array.js"
+  ],
+  "dependencies": {
+    "hast-util-select": "^4.0.0"
+  },
+  "devDependencies": {
+    "hastscript": "^5.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.1",
+    "rehype-format": "^3.0.1",
+    "rehype-parse": "^6.0.2",
+    "rehype-stringify": "^6.0.1",
+    "unified": "^8.4.2"
+  }
+}
