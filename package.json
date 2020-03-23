@@ -4,15 +4,14 @@
   "license": "MIT",
   "version": "0.1.0",
   "scripts": {
-    "format": "prettier --write --prose-wrap always '**/*.{js,md}'",
+    "format": "prettier --write '**/*.{js,md}'",
     "test": "jest"
   },
   "files": [
-    "index.js",
-    "hast-util-insert.js",
-    "hast-util-to-node-array.js"
+    "index.js"
   ],
   "dependencies": {
+    "hast-util-insert": "github:marekweb/hast-util-insert",
     "hast-util-select": "^4.0.0"
   },
   "devDependencies": {
@@ -23,5 +22,8 @@
     "rehype-parse": "^6.0.2",
     "rehype-stringify": "^6.0.1",
     "unified": "^8.4.2"
+  },
+  "prettier": {
+    "proseWrap": "always"
   }
 }
