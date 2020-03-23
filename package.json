@@ -2,7 +2,7 @@
   "name": "rehype-insert",
   "repository": "marekweb/rehype-insert",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "format": "prettier --write '**/*.{js,md}'",
     "test": "jest"
